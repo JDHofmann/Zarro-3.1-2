@@ -4,32 +4,34 @@
     <meta charset="utf-8">
     <meta name="description" content="This is our description for search results">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Sarina&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:300,400|Open+Sans:300,400|Roboto:300,400|Source+Sans+Pro:300,400&display=swap" rel="stylesheet"> 
   	<?php wp_head();?>
-    <title>Tara Teschke</title>
+    <title>JD Hofmann</title>
   </head>
   <body>
     <header>
-      <img class="header logo" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Tara Teschke">
+      <h1>JD Hofmann</h1>
       <nav role="navigation">
         <div id="menuToggle">
-          <!--
-          A fake / hidden checkbox is used as click reciever,
-          so you can use the :checked selector on it.
-          -->
           <input type="checkbox" />
           <span></span>
           <span></span>
           <span></span>
           <ul id="menu">
-            <li><a href="<?php echo site_url('') ?>">Home</a></li>
-            <li><a href="<?php echo site_url('/blog') ?>">Blog</a></li>
-            <li><a href="<?php echo site_url('/projects') ?>">Archive</a></li>
-            <li><a href="<?php echo site_url('/music') ?>">Music</a></li>
-            <li><a href="<?php echo site_url('about') ?>">About</a></li>
+            <li><a href="<?php echo site_url('') ?>"
+              <?php if(is_front_page()) echo 'class="active"' ?>
+              >Home</a></li>
+            <li><a href="<?php echo site_url('/blog') ?>"
+              <?php if(get_post_type() == 'post') echo 'class="active"' ?>
+              >Blog</a></li>
+            <li><a href="<?php echo site_url('/projects') ?>"
+              <?php if(get_post_type() == 'project') echo 'class="active"' ?>
+              >Archive</a></li>
+            <li><a href="<?php echo site_url('/music') ?>"
+              <?php if(is_page('music')) echo 'class="active"' ?>
+              >Music</a></li>
+            <li><a href="<?php echo site_url('about') ?>"
+              <?php if(is_page('about')) echo 'class="active"' ?>
+              >About</a></li>
           </ul>
         </div>
       </nav>

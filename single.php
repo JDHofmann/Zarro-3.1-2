@@ -1,9 +1,13 @@
 <?php get_header() ?>
 <div class="big-logo">
-  <h2 class="extended-page-title">Blog</h2>
+  <a href="<?php echo site_url('/blog') ?>">
+    <h2 class="extended-page-title">Blog</h2>
+  </a>
 </div>
 <main>
-  <h2 class="page-title">The Blog</h2>
+  <a href="<?php echo site_url('/blog') ?>">
+    <h2 class="page-title">The Blog</h2>
+  </a>
   <?php
     while(have_posts()) {
       the_post();

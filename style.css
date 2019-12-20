@@ -1,9 +1,10 @@
 /*
-Theme Name: Teschke
+Theme Name: JDWP
 Theme URI: no one cares
 Author: JDH
 
-Description: Template Demo JDH
+Description: JD Hofmann Portfolio JDH
+Version: 1.0 Alpha
 */
 
 * {
@@ -39,20 +40,23 @@ body {
   line-height: 1;
   background-color: #fff;
   width: 100vw;
+  font-family: sans-serif;
 }
 header {
   height: 35px;
 	min-height: 45px;
   width: 100%;
-  box-shadow: 1px 1px 3px #222;
+  /* box-shadow: 1px 1px 3px #222; */
   position: relative;
 }
-.logo {
+h1 {
   display: block;
-  height: 20px;
+  font-size: 22px;
+  letter-spacing: 5px;
   position: absolute;
   top: 12.5px;
-  left: 2.5vh;
+  left: 2.5vw;
+  font-family: 'Montserrat', sans-serif;
 }
 .big-logo, .extended-page-title  {
   display: none;
@@ -61,10 +65,11 @@ header {
   height: 25vh;
   width: 95vw;
   margin: 2.5vh 2.5vw;
-  background-image: url(img/glitterlogo.png);
-  background-repeat: no-repeat;
+  background-color: #008844;
+  border: 4px solid #222;
+  /* background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 .extended-page-title {
   /* font-family: 'Sarina', cursive; */
@@ -72,9 +77,10 @@ header {
   /* font-family: 'Rubik', sans-serif; */
   /* font-family: 'Prompt', sans-serif; */
   /* font-family: 'Julius Sans One', sans-serif; */
+  color: #fff;
   font-size: 35px;
   letter-spacing: 2.5px;
-  margin: 15vh 0 2.5vh 5vh;
+  margin: 15vh 0 2.5vh 2.5vw;
 }
 
 /* TOGGLE NAV */
@@ -83,7 +89,7 @@ header {
   display: block;
   position: absolute;
   top: 12.5px;
-  right: 2.5vh;
+  right: 2.5vw;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -154,7 +160,7 @@ header {
   padding-top: 125px;
   right: -60px;
 
-  background: #eee;
+  background: #008888;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -165,17 +171,19 @@ header {
 
 #menu li
 {
-  padding: .5em 0;
+  padding: .7em 0;
   font-family: 'Sarina', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-size: 22px;
-	transition: .4s;
 }
 #menu li a {
 	color: #222;
+  transition: .5s;
 }
-#menu li:hover {
-	border-left: 4px solid #222;
-	padding-left: 5px;
+#menu li a:hover {
+  border-left: 2px solid #222;
+  border-right: 2px solid #222;
+  padding: 0 16px;
 }
 #menuToggle input:checked ~ ul
 {
@@ -193,7 +201,6 @@ main {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 }
-
 .page-title {
   display: inline-block;
   margin: 2vh 2.5vw;
@@ -209,7 +216,7 @@ main {
 .card {
   width: 100%;
   padding: 1.5% 2.5%;
-  box-shadow: .5vh .5vh .5vh #222;
+  /* box-shadow: .5vh .5vw .5vh #222; */
 }
 .card-header {
   height: auto;
@@ -224,7 +231,7 @@ main {
 .card-date {
   font-size: .75em;
   letter-spacing: .15em;
-  margin-bottom: 1.5vh;
+  margin-bottom: 2.4em;
 }
 .card-thumbnail{
 
@@ -234,46 +241,43 @@ main {
 	text-align: center;
 	margin: 2.5% auto;
 }
-.card-content {
-  font-weight: 300;
-  line-height: 1.1em;
-  margin-bottom: 1em;
+.card p {
+  font-size: 1.06em;
+  line-height: 1.4em;
+  margin-bottom: 1.4em;
 }
 #read-more {
 	display: block;
 	text-align: center;
-	transition: .4s;
+	transition: .5s;
 }
 #read-more:hover {
-	border-top: 2.5px solid #eee;
-	border-bottom: 2.5px solid #eee;
-	padding: 2.5px 0;
+	border-top: 2px solid #eee;
+	border-bottom: 2px solid #eee;
+	padding: .7em 0;
 }
-.pagination {
-	display: block;
+.pagination, .pagination a, .pagination span{
+	display: inline-block;
 	text-align: center;
 	color: #222;
-}
-.pagination a {
-	color: #222;
-	padding: 2.5%;
+  font-family: 'Montserrat', sans-serif;
+	margin: 1.2em;
+  padding: 0;
 	transition: .4s;
 }
 .pagination a:hover {
-	border-left: 2.5px solid #222;
-	border-right: 2.5px solid #222;
-
-	/* padding-left: 5px; */
-	margin: 0 10px;
+	border-left: 2px solid #222;
+	border-right: 2px solid #222;
+	padding: 0 1.4em;
 }
 footer {
 	height: 15vh;
-	background-image: url(img/glitterlogo.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-	transform: rotate(180deg) scaleX(-1);
+	background-color: #008888;
+  border-top: 4px solid #222;
 }
+
+/* MEDIUM SCREEN SIZE */
+
 @media only screen and (min-width: 768px){
   header {
     height: 50px;
@@ -301,5 +305,56 @@ footer {
   #menu li
   {
     padding: .75em 0;
+  }
+}
+
+/* LARGE SCREEN SIZE */
+
+@media only screen and (min-width: 1025px) {
+
+  #menuToggle
+  {
+    right: 0;
+  }
+  #menuToggle input
+  {
+    display: none;
+    padding: 0;
+  }
+  #menuToggle span
+  {
+    display: none;
+    padding: 0;
+  }
+  #menu
+  {
+    width: 600px;
+    height: 100%;
+    margin: 0;
+    padding: 0 2.5vw 0 0;
+    right: 0;
+    transform: none;
+    background: #222;
+    text-align: right;
+  }
+  #menu li
+  {
+    display: inline;
+    padding: 0 0 0 15px;
+  }
+  #menu li a {
+  	color: #eee;
+    transition: .4s;
+    font-weight: lighter;
+  }
+  #menu li a:hover {
+  	border-left: 2px solid #eee;
+    border-right: 2px solid #eee;
+  	padding: 0 7.5px;
+  }
+  .active {
+    border-left: 2px solid #eee;
+    border-right: 2px solid #eee;
+  	padding: 0 7.5px;
   }
 }
