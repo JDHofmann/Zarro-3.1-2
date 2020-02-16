@@ -280,8 +280,8 @@ input:checked ~ nav .menu li {
 
 .gallery {
   display: grid;
-  grid-template-columns: 45% 45%;
-  grid-gap: 10%;
+  grid-template-columns: 40vw 40vw;
+  grid-gap: 10vh 10vw;
   margin: 2.5vh 5vw;
   justify-items: center;
   align-items: center;
@@ -331,6 +331,10 @@ input:checked ~ nav .menu li {
 }
 .single {
   z-index: -1;
+}
+.single img {
+  margin: 0 auto;
+  display: block;
 }
 .single figcaption {
   text-align: center;
@@ -429,10 +433,10 @@ input:checked ~ nav .menu li {
 
 .pagination {
   clear: both;
-  position: absolute;
-  bottom: 2.5vh;
-  right: 5vw;
+  position: relative;
+  float: right;
   font-size: 2.25vh;
+  margin: 5vh 5vw;
 }
 .pagination span,
 .pagination a {
@@ -460,7 +464,8 @@ input:checked ~ nav .menu li {
   }
   #wpforms-30 {
     width: 80%;
-    margin: 0 10%;
+    margin: 0 auto;
+    max-width: 800px;
   }
   .back-button,
   .pagination {
@@ -469,4 +474,29 @@ input:checked ~ nav .menu li {
 }
 
 @media only screen and (min-width: 1025px) {
+  .gallery {
+    grid-template-columns: 30vw 30vw;
+    /* grid-gap: 10vh 20vw; */
+    margin: 5vh 15vw;
+  }
+  .gallery a {
+    width: 30vw;
+    height: 30vw;
+  }
+  .gallery img {
+    height: 30vw;
+  }
+  .watermark {
+    font-size: 2.5vh;
+    transform: rotate(0deg);
+    left: 60%;
+    top: 5%;
+  }
+  .pagination {
+    clear: both;
+    position: relative;
+    float: right;
+    font-size: 2.25vh;
+    margin: 5vh 15vw;
+  }
 }
