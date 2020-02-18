@@ -7,7 +7,9 @@ function setup(){
   // add outside fonts
 
   // change microtime() to version number for deployment
+
   wp_enqueue_style('style', get_stylesheet_uri());
+  wp_enqueue_script('jQuery', get_theme_file_uri('/js/jquery.js'), array( 'jquery'), 1.0, true);
   wp_enqueue_script('main', get_theme_file_uri('/js/main.js'), NULL, 1.0, true);
 }
 

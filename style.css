@@ -1,5 +1,5 @@
 /*
-Theme Name: Zarro
+Theme Name: Thomas
 Theme URI: JDHofmann.com
 Author: JDHofmann
 
@@ -103,6 +103,7 @@ body {
   font-weight: 300;
   overflow-x: hidden;
 }
+
 span,
 nav,
 .menu,
@@ -115,17 +116,50 @@ nav,
   transition: 0.5s cubic-bezier(0.65, 0, 0.65, 1);
 }
 
+.close-button,
+.page-buttons button,
+.slide a {
+  transition: 0.3s;
+}
+
+.slide-title,
+.page-buttons button:hover {
+  background-color: rgba(34, 102, 170, 0.6);
+}
+.pagination span,
+.pagination a,
+.menu li a,
+.front figure figcaption,
+.front figcaption a,
+.slide-title,
+.page-buttons button,
+.close-button,
+.close-button a,
+.watermark,
+.single p,
+.single figcaption,
+.card-title {
+  color: #fff;
+}
+.close-button span,
+input:checked ~ .menu-btn span {
+  background-color: #fff;
+}
+
 /* HEADER & NAV */
 
 header {
   position: relative;
-  margin-bottom: 5%;
+  margin-bottom: 5vh;
+  height: 20vh;
 }
 .logo {
   width: 20vw;
   display: block;
   margin: 0 auto 2vh;
+  max-width: 150px;
 }
+
 h1 {
   display: block;
   text-align: center;
@@ -159,7 +193,6 @@ header span {
   z-index: 9;
 }
 input:checked ~ .menu-btn span {
-  background-color: #fff;
   border: 1px solid #fff;
 }
 input:checked ~ .menu-btn span:first-child {
@@ -210,7 +243,6 @@ input:checked ~ nav .menu {
   transition-delay: 0.3s;
 }
 .menu li a {
-  color: #fff;
   transition: 0.3s;
 }
 .menu li a:hover {
@@ -233,7 +265,7 @@ input:checked ~ nav .menu li {
 }
 .front figure {
   width: 100%;
-  height: 20vmax;
+  height: 20vh;
   margin: 2.5vh 0;
   position: relative;
   filter: grayscale(60%);
@@ -252,9 +284,8 @@ input:checked ~ nav .menu li {
   margin-top: 0;
   width: 100%;
   text-align: center;
-  line-height: 20vmax;
+  line-height: 20vh;
   font-size: 2em;
-  color: #fff;
   text-transform: uppercase;
   font-weight: 500;
   opacity: 0;
@@ -265,72 +296,144 @@ input:checked ~ nav .menu li {
 .front figcaption a {
   width: 100%;
   display: block;
-  height: 20vmax;
-  color: #fff;
+  height: 20vh;
   text-decoration: none;
 }
 
 .front div a {
   display: block;
-  height: 20vmax;
-  line-height: 20vmax;
+  height: 20vh;
+  line-height: 20vh;
 }
 
-/* GALLERY */
+/* Slideshow */
 
-.gallery {
-  display: grid;
-  grid-template-columns: 40vw 40vw;
-  grid-gap: 10vh 10vw;
-  margin: 2.5vh 5vw;
-  justify-items: center;
-  align-items: center;
+.slide-gallery {
+  margin: 0 5vw 5vh;
+  width: 90vw;
+  height: 65vh;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* find a fix for this */
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
 }
-.gallery a {
-  position: relative;
-  height: 40vw;
-  width: 40vw;
+.slide {
+  width: 90vw;
+  flex-shrink: 0;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
 }
-.gallery .wp-block-image {
-  margin: 0;
+.slide > div {
+  /* CURRENT way. */
+  scroll-snap-align: start;
 }
-.gallery img {
+.slide img {
   object-fit: cover;
   object-position: center;
-  height: 40vw;
+  height: 50vh;
   width: 100%;
 }
-.hover-title {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.slide-title {
+  position: relative;
   text-align: center;
-  font-size: 1.25vh;
+  font-size: 2.5vh;
   line-height: 5vh;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
-  opacity: 0;
 }
-.hover-title:hover {
+.slide a {
+  display: block;
+  color: rgba(34, 102, 170, 0.6);
+  text-align: center;
+  line-height: 5vh;
+}
+.slide a:hover {
+  color: rgba(34, 102, 170, 1);
+}
+.page-buttons {
+  position: relative;
+  margin: 0 5vw;
+}
+.page-buttons button {
+  position: absolute;
+  top: 20vh;
+  width: 10vw;
+  font-size: 5vh;
+  padding: 2.25vh 0 2.75vh;
+  background-color: rgba(34, 102, 170, 0);
+  border: none;
+  opacity: 0.6;
+}
+.page-buttons button:hover {
   opacity: 1;
+}
+.prev {
+  border-radius: 0 10% 10% 0;
+}
+.next {
+  right: 0;
+  border-radius: 10% 0 0 10%;
 }
 
 /* SINGLE*/
 
+.single-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 0;
+}
+.close-button {
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 2.25vh;
+  z-index: 2;
+  border: none;
+  position: absolute;
+  top: -7.5vh;
+  left: 5vw;
+  width: 50px;
+  height: 50px;
+}
+.close-button:hover {
+  background-color: #26a;
+}
+.close-button span {
+  width: 30px;
+  height: 3px;
+  border: 1px solid #fff;
+  position: relative;
+  display: block;
+  left: 2.5px;
+  z-index: 8;
+}
+.close-button span:first-child {
+  transform: rotate(225deg);
+  top: 3px;
+}
+.close-button span:nth-last-child(1) {
+  transform: rotate(-45deg);
+}
+.individual-project {
+  position: relative;
+  z-index: 1;
+  top: -2.5vh;
+}
 .single {
   margin: 5vh 5vw;
   position: relative;
+  z-index: 1;
 }
 .card-title {
   text-align: center;
   margin-bottom: 2.5vh;
-  font-size: 1.35em;
+  font-size: 2vh;
   position: relative;
   z-index: 1;
-}
-.single {
-  z-index: -1;
 }
 .single img {
   margin: 0 auto;
@@ -350,7 +453,6 @@ input:checked ~ nav .menu li {
 }
 .watermark {
   position: absolute;
-  color: #fff;
   font-weight: 700;
   z-index: 0;
   opacity: 0.4;
@@ -360,44 +462,34 @@ input:checked ~ nav .menu li {
   left: -10vh;
   font-size: 2vh;
   transform: rotate(-90deg);
-
-  /* Diagonal watermark */
-  /* top: 25vh;
-  left: 7.5vw;
-  font-size: 5vh;
-  transform: rotate(-45deg); */
 }
-
 /* CONTACT */
 
 /* change below to #wpforms-278 */
-#wpforms-30 {
+#wpforms-278 {
   margin: 0;
 }
-#wpforms-30 label {
-  /* color: #bbb; */
+#wpforms-278 label {
   font-weight: 300;
   letter-spacing: 0.12em;
 }
 
-#wpforms-30 .wpforms-field {
+#wpforms-278 .wpforms-field {
   text-align: center;
   margin: 2vh auto;
-  /* max-width: 60%; */
 }
-#wpforms-30 .wpforms-field:last-of-type {
-  /* max-width: 80%; */
+#wpforms-278 .wpforms-field:last-of-type {
 }
 
-#wpforms-30 input,
-#wpforms-30 textarea {
+#wpforms-278 input,
+#wpforms-278 textarea {
   border: 1px solid #888;
   border-radius: 5px;
   display: inline-block;
   text-align: center;
   max-width: 80%;
 }
-#wpforms-30 button {
+#wpforms-278 button {
   background-color: #222;
   color: #fff;
   text-transform: uppercase;
@@ -407,96 +499,70 @@ input:checked ~ nav .menu li {
   z-index: 2;
   transition: 0.3s;
 }
-#wpforms-30 button:hover {
+#wpforms-278 button:hover {
   background-color: #26a;
-}
-
-/* FOOTERISH */
-
-.back-button {
-  color: #fff;
-  background-color: #80b2e6;
-  font-size: 2.25vh;
-  padding: 0.5vh 0.75em;
-  margin: 2.5vh 5vw;
-  border-radius: 5px;
-  z-index: 2;
-  transition: 0.3s;
-  border: none;
-}
-.back-button:hover {
-  background-color: #26a;
-}
-.back-button a {
-  color: #fff;
-}
-
-.pagination {
-  clear: both;
-  position: relative;
-  float: right;
-  font-size: 2.25vh;
-  margin: 5vh 5vw;
-}
-.pagination span,
-.pagination a {
-  background-color: #abccee;
-  border-radius: 5px;
-  color: #fff;
-  padding: 0.5vh 0.75em;
-}
-.pagination span:hover,
-.pagination a:hover {
-  background-color: #26a;
-}
-.pagination .current {
-  /* background-color: #80b2e6; */
-  background-color: #6ba6e1;
-  padding: 0.5vh 1em;
 }
 
 @media only screen and (min-width: 768px) {
   h1 {
-    font-size: 1.7em;
+    font-size: 2.5vh;
   }
   .card {
     margin: 5vh 5vw;
   }
-  #wpforms-30 {
+  .page-buttons button {
+    top: 35vh;
+  }
+  .slide-gallery {
+    height: 85vh;
+  }
+  .slide img {
+    height: 70vh;
+  }
+  #wpforms-278 {
     width: 80%;
     margin: 0 auto;
     max-width: 800px;
   }
-  .back-button,
-  .pagination {
-    font-size: 1.75vh;
-  }
 }
 
 @media only screen and (min-width: 1025px) {
-  .gallery {
-    grid-template-columns: 30vw 30vw;
-    /* grid-gap: 10vh 20vw; */
-    margin: 5vh 15vw;
+  header {
+    height: initial;
   }
-  .gallery a {
-    width: 30vw;
-    height: 30vw;
+  h1 {
+    font-size: 25px;
   }
-  .gallery img {
-    height: 30vw;
+  .logo {
+    margin: -50px auto 2vh;
+  }
+  .front,
+  .single {
+    max-width: 1000px;
+    margin: 5vh auto;
   }
   .watermark {
     font-size: 2.5vh;
     transform: rotate(0deg);
     left: 60%;
-    top: 5%;
+    top: 6%;
   }
-  .pagination {
-    clear: both;
-    position: relative;
-    float: right;
-    font-size: 2.25vh;
-    margin: 5vh 15vw;
+  .page-buttons button {
+    top: 35vh;
+  }
+  .slide-gallery {
+    height: 95vh;
+    max-width: 1000px;
+    margin: 0 auto 5vh;
+  }
+  .page-buttons {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .slide {
+    max-width: 1000px;
+  }
+  .slide-gallery img {
+    height: 80vh;
   }
 }

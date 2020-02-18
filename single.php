@@ -1,7 +1,15 @@
 <!-- INDIVIDUAL PROJECTS PAGE -->
 
+
 <?php get_header() ?>
-<!-- <main class="individual-project"> -->
+<div class="single-mask"></div>
+
+<main class="individual-project">
+<button class="close-button"><?php
+      $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+      echo "<a href='$url'><span></span>
+      <span></span></a>";?>
+   </button>
   <?php
     while(have_posts()) {
       the_post();
@@ -12,16 +20,11 @@
       MICHAEL LOKENSGAARD
       </h6>
         <?php the_content();?>
-        
-      
     </div>
     <?php
     }
    ?>
    
-<!-- </main> -->
-<button class="back-button"><?php
-      $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-      echo "<a href='$url'>Back</a>";?>
-   </button>
+
+
 <?php get_footer() ?>
