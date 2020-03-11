@@ -4,7 +4,7 @@ Theme URI: JDHofmann.com
 Author: JDHofmann
 
 Description: WP theme for Michael Lokensgaard
-Version: 3.3 Beta
+Version: 1.3 Beta
 */
 
 html,
@@ -122,7 +122,8 @@ nav,
   transition: 0.3s;
 }
 
-.slide-title,
+/* .slide-title, */
+.slide a,
 .page-buttons button:hover {
   background-color: rgba(34, 102, 170, 0.6);
 }
@@ -131,7 +132,7 @@ nav,
 .menu li a,
 .front figure figcaption,
 .front figcaption a,
-.slide-title,
+.slide a,
 .page-buttons button,
 .close-button,
 .close-button a,
@@ -150,30 +151,52 @@ input:checked ~ .menu-btn span {
 
 header {
   position: relative;
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
   height: 20vh;
+  /* mobile update */
+  /* margin-bottom: 2.5vh; */
+  height: 10vh;
+  min-height: 70px;
+  display: flex;
 }
 .logo {
-  width: 20vw;
+  /* width: 20vw;
   display: block;
   margin: 0 auto 2vh;
-  max-width: 150px;
+  max-width: 150px; */
+
+  /* mobile update */
+
+  width: 50px;
+  display: inline;
+  position: absolute;
+  top: 27px;
+  right: 10px;
+  margin: 0 5px;
 }
 
 h1 {
-  display: block;
+  /* display: block;
   text-align: center;
   font-size: 1.35em;
   letter-spacing: 2.5px;
   text-indent: 2.5px;
-  margin: 5px;
+  margin: 5px; */
+
+  /* mobile update */
+  display: inline;
+  line-height: 70px;
+  font-size: 2.5vmax;
+  position: relative;
+  transform: translateX(-35px);
+  margin: 0 auto;
 }
 header input {
   position: relative;
   width: 50px;
   height: 50px;
   z-index: 10;
-  margin: 10px;
+  margin: 10px 10px 0 10px;
   opacity: 0;
 }
 header span {
@@ -208,7 +231,7 @@ input:checked ~ .menu-btn span:nth-last-child(1) {
   top: 0;
   width: 50px;
   height: 50px;
-  margin: 10px;
+  margin: 10px 10px 0 10px;
   z-index: 4;
 }
 nav {
@@ -268,11 +291,11 @@ input:checked ~ nav .menu li {
   height: 20vh;
   margin: 2.5vh 0;
   position: relative;
-  filter: grayscale(60%);
+  /* filter: grayscale(60%); */
 }
-.front figure:hover {
+/* .front figure:hover {
   filter: grayscale(0);
-}
+} */
 .front figure img {
   height: 100%;
   object-fit: cover;
@@ -285,19 +308,21 @@ input:checked ~ nav .menu li {
   width: 100%;
   text-align: center;
   line-height: 20vh;
-  font-size: 2em;
+  font-size: 5vh;
+  letter-spacing: 0.5vh;
   text-transform: uppercase;
   font-weight: 500;
-  opacity: 0;
+  /* opacity: 0; */
 }
-.front figure figcaption:hover {
+/* .front figure figcaption:hover {
   opacity: 1;
-}
+} */
 .front figcaption a {
   width: 100%;
   display: block;
   height: 20vh;
   text-decoration: none;
+  ext-shadow: 1px 1px 1vh #000;
 }
 
 .front div a {
@@ -309,9 +334,9 @@ input:checked ~ nav .menu li {
 /* Slideshow */
 
 .slide-gallery {
-  margin: 0 5vw 5vh;
-  width: 90vw;
-  height: 65vh;
+  margin: 0 0 2.5vh;
+  width: 100vw;
+  height: 87.5vh;
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
@@ -320,9 +345,11 @@ input:checked ~ nav .menu li {
   scroll-snap-type: x mandatory;
 }
 .slide {
-  width: 90vw;
+  width: 100vw;
+  margin-right: 5vw;
   flex-shrink: 0;
   height: 100%;
+  height: 87.5vh;
   scroll-snap-align: start;
   scroll-behavior: smooth;
 }
@@ -330,53 +357,65 @@ input:checked ~ nav .menu li {
   /* CURRENT way. */
   scroll-snap-align: start;
 }
+.slide img,
+.slide-title,
+.slide a {
+  width: 100vw;
+  /* max-width: 1000px; */
+}
+
 .slide img {
   object-fit: cover;
   object-position: center;
-  height: 50vh;
-  width: 100%;
+  height: 72.5vh;
 }
 .slide-title {
   position: relative;
   text-align: center;
   font-size: 2.5vh;
   line-height: 5vh;
+  color: rgba(34, 102, 170, 0.6);
   z-index: 1;
+}
+.slide-title:hover {
+  color: rgba(34, 102, 170, 1);
 }
 .slide a {
   display: block;
-  color: rgba(34, 102, 170, 0.6);
   text-align: center;
   line-height: 5vh;
+  font-size: 0.9em;
 }
 .slide a:hover {
-  color: rgba(34, 102, 170, 1);
 }
 .page-buttons {
   position: relative;
-  margin: 0 5vw;
+  /* margin: 0 5vw; */
 }
 .page-buttons button {
   position: absolute;
-  top: 20vh;
+  top: 27.5vh;
   width: 10vw;
-  font-size: 5vh;
-  padding: 2.25vh 0 2.75vh;
-  background-color: rgba(34, 102, 170, 0);
+  max-width: 75px;
+  font-size: 10vh;
+  /* padding: 2.25vh 0 2.75vh; */
+  background-color: rgba(34, 102, 170, 0.3);
+  /* background-color: rgba(0, 0, 0, 0); */
   border: none;
-  opacity: 0.6;
-}
-.page-buttons button:hover {
-  opacity: 1;
+  /* opacity: 0.8; */
 }
 .prev {
-  border-radius: 0 10% 10% 0;
+  border-radius: 0 5% 5% 0;
 }
 .next {
   right: 0;
-  border-radius: 10% 0 0 10%;
+  border-radius: 5% 0 0 5%;
 }
-
+.card .wpcp-single-item img {
+  object-fit: cover;
+  object-position: center;
+  height: 72.5vh;
+}
 /* SINGLE*/
 
 .single-mask {
@@ -389,26 +428,26 @@ input:checked ~ nav .menu li {
   z-index: 0;
 }
 .close-button {
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 2.25vh;
+  background-color: rgba(34, 102, 170, 0);
   z-index: 2;
   border: none;
   position: absolute;
-  top: -7.5vh;
-  left: 5vw;
-  width: 50px;
-  height: 50px;
+  /* top: 10px; */
+  left: 5px;
+  /* width: 10vmin;
+  height: 10vmin; */
 }
-.close-button:hover {
-  background-color: #26a;
+.close-button a {
+  font-size: 7vmin;
+  line-height: 10vmin;
 }
-.close-button span {
+/* .close-button span {
   width: 30px;
   height: 3px;
   border: 1px solid #fff;
   position: relative;
   display: block;
-  left: 2.5px;
+  left: 2px;
   z-index: 8;
 }
 .close-button span:first-child {
@@ -417,23 +456,26 @@ input:checked ~ nav .menu li {
 }
 .close-button span:nth-last-child(1) {
   transform: rotate(-45deg);
-}
+} */
 .individual-project {
   position: relative;
   z-index: 1;
-  top: -2.5vh;
+  top: 0;
+  width: 100%;
 }
 .single {
-  margin: 5vh 5vw;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 .card-title {
   text-align: center;
-  margin-bottom: 2.5vh;
-  font-size: 2vh;
-  position: relative;
+  font-size: calc(1vmin + 12px);
+  position: absolute;
   z-index: 1;
+  line-height: 10vh;
+  margin-top: -10vh;
+  width: 100%;
 }
 .single img {
   margin: 0 auto;
@@ -453,15 +495,13 @@ input:checked ~ nav .menu li {
 }
 .watermark {
   position: absolute;
+  font-size: calc(10px + 1vmin);
   font-weight: 700;
+  text-shadow: 0 0 1vh #26a;
   z-index: 0;
-  opacity: 0.4;
-
-  /* Vertical Watermark */
-  top: 20vh;
-  left: -10vh;
-  font-size: 2vh;
-  transform: rotate(-90deg);
+  opacity: 0.5;
+  left: 50%;
+  line-height: 10vmin;
 }
 /* CONTACT */
 
@@ -502,23 +542,26 @@ input:checked ~ nav .menu li {
 #wpforms-278 button:hover {
   background-color: #26a;
 }
+.coming-soon {
+  text-align: center;
+  font-size: 3vh;
+}
 
 @media only screen and (min-width: 768px) {
+  header {
+    height: 7.5vh;
+  }
+
   h1 {
-    font-size: 2.5vh;
+    font-size: 3.5vmax;
   }
   .card {
     margin: 5vh 5vw;
   }
-  .page-buttons button {
-    top: 35vh;
+  .single {
+    margin: 0 auto;
   }
-  .slide-gallery {
-    height: 85vh;
-  }
-  .slide img {
-    height: 70vh;
-  }
+
   #wpforms-278 {
     width: 80%;
     margin: 0 auto;
@@ -531,29 +574,33 @@ input:checked ~ nav .menu li {
     height: initial;
   }
   h1 {
-    font-size: 25px;
+    font-size: 40px;
   }
   .logo {
-    margin: -50px auto 2vh;
+    width: 75px;
+    top: 22px;
   }
-  .front,
-  .single {
+  .front figure figcaption {
+    opacity: 0;
+  }
+  .front figure figcaption:hover {
+    opacity: 1;
+  }
+  .front {
     max-width: 1000px;
     margin: 5vh auto;
   }
-  .watermark {
-    font-size: 2.5vh;
-    transform: rotate(0deg);
-    left: 60%;
-    top: 6%;
-  }
   .page-buttons button {
     top: 35vh;
+    opacity: 0.6;
+  }
+  .page-buttons button:hover {
+    opacity: 1;
   }
   .slide-gallery {
     height: 95vh;
     max-width: 1000px;
-    margin: 0 auto 5vh;
+    margin: 0 auto 5vw;
   }
   .page-buttons {
     max-width: 1000px;
@@ -562,7 +609,20 @@ input:checked ~ nav .menu li {
   .slide {
     max-width: 1000px;
   }
+  .slide img,
+  .slide-title,
+  .slide a {
+    width: 100vw;
+    max-width: 1000px;
+  }
   .slide-gallery img {
     height: 80vh;
+    object-fit: contain;
+  }
+  .close-button {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .close-button:hover {
+    background-color: #26a;
   }
 }

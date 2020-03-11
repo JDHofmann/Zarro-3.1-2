@@ -1,18 +1,16 @@
-<!-- Paintings Page -->
+<!-- Sculpture Page -->
 <?php get_header() ?>
 
 <?php
   $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
     $args = array(
-        // 'showposts' => '4',
-        'posts_per_page' => 6,
+        'posts_per_page' => 30,
         
         'category_name' => 'sculpture',
          'paged' => $paged
       );
     $the_query = new WP_Query($args);
 ?>
-<!-- <div class="modal-mask"></div> -->
 <div class="page-buttons">
     <button class="prev">&#8249</button>
     <button class="next">&#8250;</button>
@@ -20,7 +18,8 @@
   <div id="slide-gallery" class="slide-gallery">
     
 <?php
-  while($the_query ->have_posts()) {
+  if($the_query->have_posts()) : while($the_query ->have_posts()) {
+
     $the_query ->the_post();
 ?>    
       <div class="slide" id="<?php the_ID()?>">
@@ -34,6 +33,12 @@
     }
     wp_reset_query(); 
 ?>
+<?php else : ?>
+  
+  <div class="card">
+        <h4 class="coming-soon">Coming Soon...</h4>
+        </div>
+    <?php endif; ?>
     
    
 </div>

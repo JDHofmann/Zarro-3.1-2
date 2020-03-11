@@ -7,8 +7,8 @@
 <main class="individual-project">
 <button class="close-button"><?php
       $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-      echo "<a href='$url'><span></span>
-      <span></span></a>";?>
+      echo "<a href='$url'>&times;
+      </a>";?>
    </button>
   <?php
     while(have_posts()) {
